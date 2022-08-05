@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@*": [
+        "./src/*"
+      ]
+    },
+    "types": ["node", "jest", "@testing-library/jest-dom", "cypress"]
+  },
+  "include": ["src", "**/*.ts", "./jest/setupTests.ts"],
+  "exclude": ["node_modules", "jest", "cypress"]
+}
