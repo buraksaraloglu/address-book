@@ -14,10 +14,9 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
+
     "types": ["node", "jest", "@testing-library/jest-dom", "cypress"]
   },
   "include": ["src", "**/*.ts", "./jest/setupTests.ts"],

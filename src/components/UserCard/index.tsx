@@ -1,0 +1,67 @@
+import { useState } from 'react';
+
+import type { User } from '@/models/user';
+import { ModalOverlay } from '../ModalOverlay';
+import styles from './styles.module.scss';
+
+interface UserCardProps {
+  user: User;
+  onClick?: () => void;
+}
+
+export const UserCard = ({ user }: UserCardProps) => {
+  const [isUserDetailOpen, setIsUserDetailOpen] = useState(false);
+
+  const handleUserDetailClose = () => {
+    // maybe add some analytics here
+    setIsUserDetailOpen(false);
+  };
+
+  const userFullName = `${user.firstName} ${user.lastName}`;
+
+  const userAddress = Object.values(user.location).join(', ');
+
+  return (
+    <>
+      <div className={styles.userCard}>
+        <button
+          type="button"
+          className={styles.userCardWrapper}
+          onClick={() => setIsUserDetailOpen(true)}
+        >
+          <img
+            src={user.thumbnail}
+            alt={user.username}
+            className={styles.thumbnail}
+            loading="lazy"
+          />
+          <div className={styles.userInfo}>
+            <h1 className={styles.fullName}>{userFullName}</h1>
+            <div className={styles.userMeta}>
+              <span className={styles.secondary}>@{user.username}</span>
+              <span className={styles.secondary}>{user.email}</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <ModalOverlay isOpen={isUserDetailOpen} onClose={handleUserDetailClose}>
+        <div className={styles.userDetailContainer}>
+          <img
+            src={user.thumbnail}
+            alt={user.username}
+            className={styles.thumbnail}
+            loading="lazy"
+          />
+          <div className={styles.userMeta}>
+            <h1 className={styles.fullName}>{userFullName}</h1>
+            <span className={styles.secondary}>@{user.username}</span>
+            <span className={styles.secondary}>{user.email}</span>
+            <span className={styles.secondary}>{user.phone}</span>
+            <span className={styles.secondary}>{userAddress}</span>
+          </div>
+        </div>
+      </ModalOverlay>
+    </>
+  );
+};

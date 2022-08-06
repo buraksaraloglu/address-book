@@ -1,0 +1,101 @@
+@import "../../styles/variables.scss";
+
+.secondary {
+  font-size: 0.8rem;
+  color: rgba($dark-600, 0.7);
+}
+
+.userCard {
+  background-color: $color-white;
+  border-radius: 1rem;
+  border: 1px solid rgba($primary-color, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+
+  @media screen and (min-width: $screen-xs) {
+    max-width: 14rem;
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    max-width: 12rem;
+  }
+
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba($primary-color, 0.05);
+  }
+
+  .userCardWrapper {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 0;
+    background-color: transparent;
+    cursor: inherit;
+    gap: 1rem;
+
+    @media screen and (min-width: $screen-xs) {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .thumbnail {
+      width: 100%;
+      max-width: 5rem;
+      height: auto;
+      border-radius: 50%;
+
+      @media screen and (min-width: $screen-xs) {
+        max-width: 100%;
+        border-radius: 0.5rem;
+      }
+    }
+
+    .userInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1;
+      color: $dark-800;
+
+      @media screen and (min-width: $screen-sm) {
+        padding: 0;
+      }
+
+      .userMeta {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .fullName {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.userDetailContainer {
+  display: flex;
+  gap: 1rem;
+
+  .thumbnail {
+    border-radius: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $dark-800;
+  }
+
+  .userMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
