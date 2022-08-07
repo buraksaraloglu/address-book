@@ -20,8 +20,10 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, 'public'),
     },
+
     port: 3000,
-    hot: 'only',
+    hot: true,
+    historyApiFallback: true,
   },
   plugins: [
     isDevelopment && new ReactRefreshWebpackPlugin(),

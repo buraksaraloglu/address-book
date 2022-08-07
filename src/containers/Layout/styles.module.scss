@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.appContainer {
+  margin: 0 auto;
+  padding: 4.25rem 1rem 1rem;
+  max-width: 80rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: $background-color-light;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,13 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-import { Main } from '@/pages/Main';
+import { Home } from '@/pages/Home';
+import { Settings } from '@/pages/Settings';
+import { NoMatch } from '@/pages/NoMatch';
 
-export function Router() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Main />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+export const Router = () => (
+  <Routes>
+    <Route path="settings" element={<Settings />} />
+    <Route path="/" element={<Home />} />
+
+    <Route path="*" element={<NoMatch />} />
+  </Routes>
+);

@@ -9,6 +9,20 @@ interface UserCardProps {
   onClick?: () => void;
 }
 
+const UserAddress = ({ user }: { user: User }) => (
+  <div className={styles.userAddress}>
+    <b className={styles.userAddressLine}>Address:</b>
+    <div className={styles.userAddressLine}>
+      {Object.values(user.location.street).join(' ')}
+    </div>
+    <div className={styles.userAddressLine}>
+      {user.location.city}, {user.location.state}
+    </div>
+    <div className={styles.userAddressLine}>{user.location.country}</div>
+    <div className={styles.userAddressLine}>{user.location.postcode}</div>
+  </div>
+);
+
 export const UserCard = ({ user }: UserCardProps) => {
   const [isUserDetailOpen, setIsUserDetailOpen] = useState(false);
 
@@ -18,8 +32,6 @@ export const UserCard = ({ user }: UserCardProps) => {
   };
 
   const userFullName = `${user.firstName} ${user.lastName}`;
-
-  const userAddress = Object.values(user.location).join(', ');
 
   return (
     <>
@@ -58,7 +70,7 @@ export const UserCard = ({ user }: UserCardProps) => {
             <span className={styles.secondary}>@{user.username}</span>
             <span className={styles.secondary}>{user.email}</span>
             <span className={styles.secondary}>{user.phone}</span>
-            <span className={styles.secondary}>{userAddress}</span>
+            <UserAddress user={user} />
           </div>
         </div>
       </ModalOverlay>

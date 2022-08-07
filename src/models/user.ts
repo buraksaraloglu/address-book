@@ -2,6 +2,7 @@ export interface Location {
   street: string;
   city: string;
   state: string;
+  country: string;
   postcode: string;
 }
 
@@ -9,7 +10,6 @@ export interface UserMeta {
   id: string;
   location: Location;
   phone: string;
-  cell: string;
 }
 
 export interface UserDetail extends UserMeta {
@@ -23,6 +23,7 @@ export interface User extends UserDetail {
   lastName: string;
   username: string;
   email: string;
+  phone: string;
 }
 
 export const mockUser: User = {
@@ -36,8 +37,8 @@ export const mockUser: User = {
     street: '123 Main St',
     city: 'New York',
     state: 'NY',
+    country: 'United States',
     postcode: '10001',
   },
   phone: '123-456-7890',
-  cell: '123-456-7890',
 };
