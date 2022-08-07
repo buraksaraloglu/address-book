@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 
 interface UserCardProps {
   user: User;
-  onClick?: () => void;
+  index?: number;
 }
 
 const UserAddress = ({ user }: { user: User }) => (
@@ -23,7 +23,7 @@ const UserAddress = ({ user }: { user: User }) => (
   </div>
 );
 
-export const UserCard = ({ user }: UserCardProps) => {
+export const UserCard = ({ user, index }: UserCardProps) => {
   const [isUserDetailOpen, setIsUserDetailOpen] = useState(false);
 
   const handleUserDetailClose = () => {
@@ -45,7 +45,9 @@ export const UserCard = ({ user }: UserCardProps) => {
             src={user.thumbnail}
             alt={user.username}
             className={styles.thumbnail}
-            loading="lazy"
+            width={220}
+            height={220}
+            loading={index && index > 5 ? 'lazy' : 'eager'}
           />
           <div className={styles.userInfo}>
             <h1 className={styles.fullName}>{userFullName}</h1>

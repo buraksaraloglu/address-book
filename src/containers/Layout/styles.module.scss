@@ -9,19 +9,3 @@
     padding: 4.25rem 1rem 1rem;
   }
 }
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0.5rem;
-  background-color: $background-color-light;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  @media screen and (min-width: $screen-xs) {
-    padding: 1rem;
-  }
-}

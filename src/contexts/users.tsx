@@ -1,4 +1,11 @@
-import { createContext, useState, useContext, useMemo, useEffect } from 'react';
+import {
+  createContext,
+  useState,
+  useContext,
+  useMemo,
+  useEffect,
+  useCallback,
+} from 'react';
 
 import { fetchUsers } from '@/api/users';
 import { USERS_LIMIT } from '@/utils/constants';
@@ -54,7 +61,7 @@ export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
     [users, isLoading, error, debouncedSearch],
   );
 
-  const fetchUsersRequest = async (): Promise<void> => {
+  const fetchUsersRequest = async () => {
     setIsLoading(true);
     setError(null);
     try {
@@ -63,7 +70,11 @@ export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
         pagination,
       });
       setUsers(formatUsersResponse(results));
-      setPagination(info);
+      setPagination(prevPagination => ({
+        ...prevPagination,
+        seed: info.seed,
+        page: info.page,
+      }));
     } catch (e: any) {
       setError(e);
     } finally {
