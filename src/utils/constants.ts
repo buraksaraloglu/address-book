@@ -5,6 +5,9 @@ export enum SearchNationalities {
   GB = 'GB',
 }
 
-export const USERS_LIMIT = 50;
+export const LOCAL_STORAGE_KEYS = {
+  SEARCH_NATIONALITIES: 'searchNationalities',
+};
 
+export const USERS_LIMIT = 50;
 export const DEFAULT_DEBOUNCE_DELAY = 300;

@@ -2,6 +2,7 @@ import { createContext, useState, useContext, useMemo, useEffect } from 'react';
 
 import { fetchUsers } from '@/api/users';
 import { USERS_LIMIT } from '@/utils/constants';
+import { formatUsersResponse } from '@/utils/helpers';
 import { useSettings } from './settings';
 
 import type { User } from '../models/user';
@@ -20,18 +21,6 @@ const defaultSettings: IUsersContext = {
 };
 
 export const UsersContext = createContext(defaultSettings);
-
-const formatUsersResponse = (users: any): User[] =>
-  users.map((user: any) => ({
-    id: user.login.uuid,
-    firstName: user.name.first,
-    lastName: user.name.last,
-    email: user.email,
-    phone: user.phone,
-    location: user.location,
-    username: user.login.username,
-    thumbnail: user.picture.medium,
-  }));
 
 export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
   const [users, setUsers] = useState<Array<User>>([]);
@@ -84,7 +73,7 @@ export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     fetchUsersRequest();
-  }, []);
+  }, [searchNationality]);
 
   return (
     <UsersContext.Provider value={value}>{children}</UsersContext.Provider>

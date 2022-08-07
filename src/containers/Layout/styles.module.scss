@@ -2,8 +2,12 @@
 
 .appContainer {
   margin: 0 auto;
-  padding: 4.25rem 1rem 1rem;
+  padding: 3.75rem 0.5rem 0.5rem;
   max-width: 80rem;
+
+  @media screen and (min-width: $screen-xs) {
+    padding: 4.25rem 1rem 1rem;
+  }
 }
 
 .header {
@@ -11,9 +15,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: $background-color-light;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (min-width: $screen-xs) {
+    padding: 1rem;
+  }
 }

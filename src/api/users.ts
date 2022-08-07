@@ -32,7 +32,7 @@ export const fetchUsers = async ({ nationality, pagination }: FetchUsers) => {
 
   if (nationality) url.searchParams.append('nat', nationality);
 
-  const response = await fetch(url, {
+  const response = await fetch(url.href, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

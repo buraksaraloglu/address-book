@@ -1,6 +1,13 @@
-import { createContext, useState, useContext, useMemo } from 'react';
+import {
+  createContext,
+  useState,
+  useContext,
+  useMemo,
+  useCallback,
+} from 'react';
 
-import { SearchNationalities } from '@/utils/constants';
+import { SearchNationalities, LOCAL_STORAGE_KEYS } from '@/utils/constants';
+import { getSearchNationalityFromLocalStorage } from '@/utils/helpers';
 
 interface SettingsContext {
   searchNationality: SearchNationalities;
@@ -8,7 +15,7 @@ interface SettingsContext {
 }
 
 const defaultSettings: SettingsContext = {
-  searchNationality: SearchNationalities.GB,
+  searchNationality: getSearchNationalityFromLocalStorage(),
   setSearchNationality: () => null,
 };
 
@@ -20,15 +27,26 @@ export const SettingsProvider = ({
   children: React.ReactNode;
 }) => {
   const [searchNationality, setSearchNationality] = useState(
-    SearchNationalities.GB,
+    defaultSettings.searchNationality,
+  );
+
+  const handleSearchNationalityChange = useCallback(
+    (nation: SearchNationalities) => {
+      setSearchNationality(nation);
+      localStorage.setItem(
+        LOCAL_STORAGE_KEYS.SEARCH_NATIONALITIES,
+        JSON.stringify(nation),
+      );
+    },
+    [setSearchNationality],
   );
 
   const value = useMemo(
     () => ({
       searchNationality,
-      setSearchNationality,
+      setSearchNationality: handleSearchNationalityChange,
     }),
-    [searchNationality, setSearchNationality],
+    [searchNationality, handleSearchNationalityChange],
   );
 
   return (
