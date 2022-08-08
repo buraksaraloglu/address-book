@@ -1,6 +1,8 @@
 import { SearchNationalities } from '@/utils/constants';
 import { getSearchNationalityOptions } from '@/utils/helpers';
 
+import styles from './styles.module.scss';
+
 interface NationalitySelectProps {
   value: string;
   onChange: (nationality: SearchNationalities) => void;
@@ -17,12 +19,22 @@ export const NationalitySelect = ({
   };
 
   return (
-    <select value={value} onChange={handleChange}>
-      {options.map(({ value: optionValue, label }) => (
-        <option key={optionValue} value={optionValue}>
-          {label}
-        </option>
-      ))}
-    </select>
+    <div className={styles.nationalitySelect}>
+      <label htmlFor="nationalitySelect">
+        Nationality Select
+        <select
+          id="nationalitySelect"
+          name="nationalitySelect"
+          value={value}
+          onChange={handleChange}
+        >
+          {options.map(({ value: optionValue, label }) => (
+            <option key={optionValue} value={optionValue}>
+              {label}
+            </option>
+          ))}
+        </select>
+      </label>
+    </div>
   );
 };

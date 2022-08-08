@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import type { User } from '@/models/user';
+import classNames from 'classnames';
 import { ModalOverlay } from '../ModalOverlay';
 import styles from './styles.module.scss';
 
@@ -52,7 +53,9 @@ export const UserCard = ({ user, index }: UserCardProps) => {
           <div className={styles.userInfo}>
             <h1 className={styles.fullName}>{userFullName}</h1>
             <div className={styles.userMeta}>
-              <span className={styles.secondary}>@{user.username}</span>
+              <span className={classNames(styles.secondary, styles.bold)}>
+                @{user.username}
+              </span>
               <span className={styles.secondary}>{user.email}</span>
             </div>
           </div>
@@ -69,7 +72,9 @@ export const UserCard = ({ user, index }: UserCardProps) => {
           />
           <div className={styles.userMeta}>
             <h1 className={styles.fullName}>{userFullName}</h1>
-            <span className={styles.secondary}>@{user.username}</span>
+            <span className={classNames(styles.secondary, styles.bold)}>
+              @{user.username}
+            </span>
             <span className={styles.secondary}>{user.email}</span>
             <span className={styles.secondary}>{user.phone}</span>
             <UserAddress user={user} />

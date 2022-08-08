@@ -19,7 +19,7 @@ export const formatUsersResponse = (users: any): Array<User> =>
     phone: user.phone,
     location: user.location,
     username: user.login.username,
-    thumbnail: user.picture.thumbnail,
+    thumbnail: user.picture.large,
   }));
 
 export const getSearchNationalityFromLocalStorage = (): SearchNationalities => {

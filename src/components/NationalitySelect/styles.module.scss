@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.nationalitySelect {
+  margin: 1rem 0;
+
+  > label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+
+    & select {
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      border: 1px solid lighten($dark-900, 40%);
+    }
+  }
+}

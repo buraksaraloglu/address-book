@@ -4,12 +4,14 @@
   position: fixed;
   top: 0;
   left: 0;
+  max-width: 100%;
   width: 100%;
   padding: 0.5rem;
   background-color: $background-color-light;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
 
   @media screen and (min-width: $screen-xs) {
     padding: 1rem;

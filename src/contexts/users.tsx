@@ -61,7 +61,7 @@ export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
     [users, isLoading, error, debouncedSearch],
   );
 
-  const fetchUsersRequest = async () => {
+  const fetchUsersRequest = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
@@ -80,7 +80,7 @@ export const UsersProvider = ({ children }: { children: React.ReactNode }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [searchNationality, pagination]);
 
   useEffect(() => {
     fetchUsersRequest();
