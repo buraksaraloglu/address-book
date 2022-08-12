@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/buraksaraloglu/address-book/compare/v1.0.1...v1.0.2) (2022-08-12)
+
+
+### Bug Fixes
+
+* revert modal element to div ([57e6afc](https://github.com/buraksaraloglu/address-book/commit/57e6afcd1b25f48003aa4a52db84f904ce028aeb))
+
 ## [1.0.1](https://github.com/buraksaraloglu/address-book/compare/v1.0.0...v1.0.1) (2022-08-12)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "address-book",
   "description": "a minimal address book app built with React",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Burak Saraloglu <buraksaraloglu1@gmail.com> (https://github.com/buraksaraloglu)",
   "main": "index.js",
   "private": true,
