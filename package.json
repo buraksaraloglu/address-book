@@ -20,10 +20,6 @@
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
     "commit": "cz",
-    "cy:open-only": "cypress open",
-    "cy:run-only": "cypress run",
-    "cy:open": "start-server-and-test dev 3000 cy:open-only",
-    "cy:run": "start-server-and-test dev 3000 cy:run-only",
     "test": "jest",
     "test:watch": "yarn test --watch"
   },
