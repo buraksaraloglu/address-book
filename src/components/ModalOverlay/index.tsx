@@ -1,5 +1,3 @@
-import { RiCloseLine } from 'react-icons/ri';
-
 import styles from './styles.module.scss';
 
 interface ModalOverlayProps {
@@ -27,7 +25,7 @@ export const ModalOverlay = ({
         onClick={onClose}
         aria-hidden="true"
       />
-      <div className={styles.centeredContainer}>
+      <dialog className={styles.centeredContainer}>
         <div className={styles.modal}>
           {/* <div className={styles.modalHeader}>
             {title && <h5 className={styles.heading}>{title}</h5>}
@@ -42,7 +40,7 @@ export const ModalOverlay = ({
           <div className={styles.divider} />
           <div className={styles.modalContent}>{children}</div>
         </div>
-      </div>
+      </dialog>
     </>
   );
 };

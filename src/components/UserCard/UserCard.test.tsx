@@ -21,13 +21,46 @@ describe('UserCard', () => {
   });
 
   it('should open a modal on user card button click', async () => {
-    const { getByRole } = render(<UserCard user={mockUser} />);
+    const { getByRole, getByLabelText } = render(<UserCard user={mockUser} />);
 
     const userCard = getByRole('button');
     fireEvent.click(userCard);
 
-    // await waitFor(() => {
-    //   expect(screen.getBy).toHaveBeenCalled();
-    // });
+    const modalOverlay = getByLabelText(/modal-overlay/i);
+    expect(modalOverlay).toBeInTheDocument();
+  });
+
+  it('should render user details on modal', async () => {
+    const { getByLabelText, getByRole, getAllByText } = render(
+      <UserCard user={mockUser} />,
+    );
+
+    const userCard = getByRole('button');
+    fireEvent.click(userCard);
+
+    const modalOverlay = getByLabelText('modal-overlay', {
+      selector: 'div',
+    });
+
+    expect(modalOverlay).toBeInTheDocument();
+    expect(
+      getAllByText(`${mockUser.firstName} ${mockUser.lastName}`),
+    ).toHaveLength(2); // 2 because of the user card and the user detail
+
+    expect(getAllByText(mockUser.email)).toHaveLength(2);
+    expect(getAllByText(`@${mockUser.username}`)).toHaveLength(2);
+  });
+
+  it('should close the modal on outside click click', async () => {
+    const { getByRole, getByLabelText } = render(<UserCard user={mockUser} />);
+
+    const userCard = getByRole('button');
+    fireEvent.click(userCard);
+
+    const modalOverlay = getByLabelText(/modal-overlay/i);
+    expect(modalOverlay).toBeInTheDocument();
+
+    fireEvent.click(modalOverlay);
+    expect(modalOverlay).not.toBeInTheDocument();
   });
 });

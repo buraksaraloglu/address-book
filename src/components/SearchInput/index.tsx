@@ -22,6 +22,7 @@ export const SearchInput = ({
   return (
     <input
       type="text"
+      name="search-user"
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
