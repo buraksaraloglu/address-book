@@ -15,11 +15,17 @@ export const CardSkeleton = () => (
 
 export const CardsSkeletonContainer = () => {
   const { innerWidth } = window;
+  const columnWidth = 220;
+  const availableColumnCount = Math.floor(innerWidth / columnWidth);
+  const columnCount =
+    availableColumnCount > 5
+      ? availableColumnCount - (availableColumnCount % 5)
+      : availableColumnCount;
 
   const loadingSkeletonColumnCount =
-    Math.floor(innerWidth / 220) === 1
-      ? 3
-      : Math.floor(innerWidth / 220) - (Math.floor(innerWidth / 220) % 5);
+    columnCount === 1
+      ? 3 // This is just workaround for the case when there is only one column available
+      : columnCount;
 
   return (
     <>

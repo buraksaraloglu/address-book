@@ -24,6 +24,7 @@ export interface User extends UserDetail {
   username: string;
   email: string;
   phone: string;
+  nat: string;
 }
 
 export const mockUser: User = {
@@ -40,5 +41,6 @@ export const mockUser: User = {
     country: 'United States',
     postcode: '10001',
   },
+  nat: 'US',
   phone: '123-456-7890',
 };

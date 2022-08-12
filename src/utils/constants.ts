@@ -10,4 +10,5 @@ export const LOCAL_STORAGE_KEYS = {
 };
 
 export const USERS_LIMIT = 50;
+export const MAX_USER_COUNT_TO_FETCH = 1_000;
 export const DEFAULT_DEBOUNCE_DELAY = 300;

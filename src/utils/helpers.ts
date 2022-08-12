@@ -19,6 +19,7 @@ export const formatUsersResponse = (users: any): Array<User> =>
     phone: user.phone,
     location: user.location,
     username: user.login.username,
+    nat: user.nat,
     thumbnail: user.picture.large,
   }));
 
