@@ -39,9 +39,6 @@ jobs:
       - name: Check commits messages
         uses: wagoid/commitlint-github-action@v4
 
-      - name: Integration tests
-        run: yarn cy:run
-
       - name: Build
         run: yarn build
 

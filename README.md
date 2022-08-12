@@ -1,5 +1,16 @@
 # Address Book
 
+An address book application that fetches random users from the [randomuser.me](https://randomuser.me) API by the selected country.
+
+## Key Features
+
+- Fetches 50 random users initially from the [randomuser.me](https://randomuser.me) API by the selected country.
+- Modal for detailed user information.
+- Routing for separate setting page.
+- Saving selected nationality to localStorage for future usages.
+- Search functionality for the users with React Context.
+- Infinite Scroll.
+
 ## Run Locally
 
 1. Clone the project
