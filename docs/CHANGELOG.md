@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/buraksaraloglu/address-book/compare/v1.0.0...v1.0.1) (2022-08-12)
+
+
+### Bug Fixes
+
+* update build output dir ([22097da](https://github.com/buraksaraloglu/address-book/commit/22097da16219ab74417151537a63a605b0b70207))
+
 # 1.0.0 (2022-08-12)
 
 
